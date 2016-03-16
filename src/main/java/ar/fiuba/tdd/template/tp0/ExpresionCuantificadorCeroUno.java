@@ -19,7 +19,6 @@ public class ExpresionCuantificadorCeroUno implements IExpresion {
         int randomNum =  minimo + i;
         if(randomNum == 1)
             salida+=caracter;
-
         pilaCadenas.push(salida);
     }
 }

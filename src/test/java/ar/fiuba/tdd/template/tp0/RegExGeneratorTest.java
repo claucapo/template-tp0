@@ -63,5 +63,10 @@ public class RegExGeneratorTest {
         assertTrue(validate("[abc]+", 1));
     }
 
-    // TODO: Add more tests!!!
+    // Tests Agregados
+    @Test
+    public void testCuantificadorCeroMuchosJuntoConExpresionPunto() {
+        assertTrue(validate(".*", 1));
+    }
+
 }

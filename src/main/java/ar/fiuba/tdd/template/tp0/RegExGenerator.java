@@ -14,35 +14,59 @@ public class RegExGenerator {
     }
 
     public List<String> generate(String regEx, int numberOfResults) {
+        List<String> listaSalida = new ArrayList<String>();
+        agregarElementosAlParserTree(regEx);
+        generarSalida(numberOfResults, listaSalida);
+        return listaSalida;
 
+    }
+
+    private void generarSalida(int numberOfResults, List<String> listaSalida) {
+        for(int i=1;i<=numberOfResults;i++){
+            Stack<String> context = procesarParserTree();
+            String salida = "";
+            for(String obj : context)
+            {
+                salida+=obj;
+            }
+            listaSalida.add(salida);
+        }
+    }
+
+    private Stack<String> procesarParserTree() {
+        Stack<String> context = new Stack<String>();
+        for (IExpresion e : parseTree)
+            e.interpret(context);
+        return context;
+    }
+
+    private void agregarElementosAlParserTree(String regEx) {
         for (char ch: regEx.toCharArray())
         {
             String token = "" + ch;
 
-            if (token.equals("*"))
-                parseTree.add( new ExpresionCuantificadorCeroMuchos(maxLength) );
-            else if (token.equals("+"))
-                parseTree.add( new ExpresionCuantificadorUnoMuchos(maxLength) );
-            else if (token.equals("?"))
-                parseTree.add( new ExpresionCuantificadorCeroUno() );
-            else if (token.equals("."))
-                parseTree.add( new ExpresionPunto() );
-            else
-                parseTree.add( new ExpresionCaracter(token) );
+            if (ExpresionFactoryEnum.fromToken(token) != null)
+                parseTree.add(ExpresionFactoryEnum.fromToken(token).obtenerExpresion());
+            else {
+                parseTree.add(ExpresionFactoryEnum.obtenerExpresionCaracter(token));
+            }
+
         }
+    }
 
+    private boolean isCuanficadorUnoMuchos(String token) {
+        return token.equals("+");
+    }
 
-        Stack<String> context = new Stack<String>();
-        for (IExpresion e : parseTree)
-            e.interpret(context);
+    private boolean isCuanficadorCeroMuchos(String token) {
+        return token.equals("*");
+    }
 
-        List<String> listaSalida = new ArrayList<String>();
-        for(String obj : context)
-        {
-            listaSalida.add(obj);
-        }
+    private boolean isCuanficadorCeroUno(String token) {
+        return token.equals("?");
+    }
 
-        return listaSalida;
-
+    private boolean isExpresionPunto(String token) {
+        return token.equals(".");
     }
 }
