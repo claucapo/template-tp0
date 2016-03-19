@@ -51,7 +51,7 @@ public enum ExpresionFactoryEnum {
 
     //region Constructor
 
-    private ExpresionFactoryEnum(String token) {
+    ExpresionFactoryEnum(String token) {
         this.token = token;
     }
 

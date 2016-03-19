@@ -32,7 +32,7 @@ public class Lexer {
                 conjunto.add(caracter);
                 caracter = siguienteCaracter();
             }
-            ;
+
 
             expresion = new ExpresionConjunto(conjunto);
 
