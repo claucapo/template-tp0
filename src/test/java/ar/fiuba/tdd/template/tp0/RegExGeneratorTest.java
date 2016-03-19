@@ -10,9 +10,15 @@ import static org.junit.Assert.assertTrue;
 
 public class RegExGeneratorTest {
 
-    private boolean validate(String regEx, int numberOfResults) throws Exception {
-        RegExGenerator generator = new RegExGenerator(numberOfResults);
-        List<String> results = generator.generate(regEx, numberOfResults);
+    public static final int MAXLENGTH;
+
+    static {
+        MAXLENGTH = 5;
+    }
+
+    private boolean validate(String regEx) throws Exception {
+        RegExGenerator generator = new RegExGenerator(MAXLENGTH);
+        List<String> results = generator.generate(regEx, 1);
         // force matching the beginning and the end of the strings
         Pattern pattern = Pattern.compile("^" + regEx + "$");
         return results
@@ -27,43 +33,43 @@ public class RegExGeneratorTest {
 
     @Test
     public void testAnyCharacter() throws Exception {
-        assertTrue(validate(".", 1));
+        assertTrue(validate("."));
     }
 
     @Test
     public void testMultipleCharacters() throws Exception {
-        assertTrue(validate("...", 1));
+        assertTrue(validate("..."));
     }
 
     @Test(expected = Exception.class)
     public void testLiteral() throws Exception {
-        assertTrue(validate("\\@", 1));
+        assertTrue(validate("\\@"));
     }
 
     @Test(expected = Exception.class)
     public void testLiteralDotCharacter() throws Exception {
-        assertTrue(validate("\\@..", 1));
+        assertTrue(validate("\\@.."));
     }
 
     @Test(expected = Exception.class)
     public void testZeroOrOneCharacter() throws Exception {
-        assertTrue(validate("\\@.h?", 1));
+        assertTrue(validate("\\@.h?"));
     }
 
     @Test
     public void testCharacterSet() throws Exception {
-        assertTrue(validate("[abc]", 1));
+        assertTrue(validate("[abc]"));
     }
 
     @Test
     public void testCharacterSetWithQuantifiers() throws Exception {
-        assertTrue(validate("[abc]+", 1));
+        assertTrue(validate("[abc]+"));
     }
 
     // Tests Agregados
     @Test
     public void testCuantificadorCeroMuchosJuntoConExpresionPunto() throws Exception {
-        assertTrue(validate(".*", 1));
+        assertTrue(validate(".*"));
     }
 
 }
