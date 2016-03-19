@@ -11,12 +11,8 @@ public class ExpresionPunto implements IExpresion {
     //region Metodos
     public void interpret(Stack<Character> pilaCadenas)
     {
-        Random rn = new Random();
-        int maximo = 255;
-        int minimo = 32;
-        int n = maximo - minimo + 1;
-        int i = rn.nextInt() % n;
-        char randomNum =  (char)(minimo + i);
+        int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(32,255);
+        char randomNum =  (char)(numeroAleatorio);
         pilaCadenas.push(randomNum);
     }
     //endregion

@@ -39,12 +39,6 @@ public class ExpresionCuantificadorCeroUno implements IExpresion {
             int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0,1);
             if(numeroAleatorio==1){
                 Character caracter = pilaCadenas.pop();
-                Random rn = new Random();
-                int maximo = 1;
-                int minimo = 0;
-                int n = maximo - minimo + 1;
-                int i = rn.nextInt() % n;
-                int randomNum = minimo + i;
                 pilaCadenas.push(caracter);
             }
 
