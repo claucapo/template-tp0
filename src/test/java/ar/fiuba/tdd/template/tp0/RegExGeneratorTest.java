@@ -72,4 +72,10 @@ public class RegExGeneratorTest {
         assertTrue(validate(".*"));
     }
 
+    @Test
+    public void testEscapearBarra() throws Exception {
+        assertTrue(validate("\\\\1"));
+    }
+
+
 }

@@ -48,6 +48,8 @@ class Lexer {
 
                 if (ExpresionFactoryEnum.fromToken(caracter) != null) {
                     expresion = ExpresionFactoryEnum.fromToken(caracter).obtenerExpresion(maxLength);
+                } else if (caracter == '\\') {
+                    expresion = ExpresionFactoryEnum.obtenerExpresionCaracter(caracter);
                 } else {
                     throw new Exception("Regexp mal formada.");
                 }
