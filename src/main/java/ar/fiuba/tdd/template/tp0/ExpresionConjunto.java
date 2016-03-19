@@ -20,8 +20,8 @@ public class ExpresionConjunto implements IExpresion {
 
     //region Metodos
 
-    public void interpret(Stack<Character> s) {
-        s.push((Character) getContenidoConjunto().toArray()[RandomUtil.obtenerNumeroAleatorio(1, getContenidoConjunto().size() - 1)]);
+    public void interpret(Stack<Character> pilaCadena) {
+        pilaCadena.push((Character) getContenidoConjunto().toArray()[RandomUtil.obtenerNumeroAleatorio(1, getContenidoConjunto().size() - 1)]);
     }
 
     public Set<Character> getContenidoConjunto() {

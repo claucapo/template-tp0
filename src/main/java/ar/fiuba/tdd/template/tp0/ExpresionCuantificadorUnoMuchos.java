@@ -19,29 +19,29 @@ public class ExpresionCuantificadorUnoMuchos implements IExpresion {
         this.conjunto = conjunto;
     }
 
-    public void interpret(Stack<Character> s) {
+    public void interpret(Stack<Character> pilaCadena) {
         if (null != conjunto) {
             int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
             if (numeroAleatorio == 1) {
                 for (int i = 1; i <= maximo; i++) {
                     for (Character item : conjunto.getContenidoConjunto()
                             ) {
-                        s.push(item);
+                        pilaCadena.push(item);
                     }
                 }
             } else {
                 for (Character item : conjunto.getContenidoConjunto()
                         ) {
-                    s.push(item);
+                    pilaCadena.push(item);
                 }
             }
         } else {
             int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
             if (numeroAleatorio == 1) {
-                Character caracter = s.pop();
+                Character caracter = pilaCadena.pop();
 
                 for (int i = 1; i <= maximo; i++) {
-                    s.push(caracter);
+                    pilaCadena.push(caracter);
                 }
             }
         }
