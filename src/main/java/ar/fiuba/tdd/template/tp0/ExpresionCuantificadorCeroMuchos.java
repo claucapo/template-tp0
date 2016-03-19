@@ -36,9 +36,8 @@ public class ExpresionCuantificadorCeroMuchos implements IExpresion {
                 }
             }
         }else{
-            int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0,1);
-            if(numeroAleatorio == 1)
-            {
+            int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
+            if (numeroAleatorio == 1) {
                 Character caracter = s.pop();
 
                 for(int i=1;i<=maximo;i++)

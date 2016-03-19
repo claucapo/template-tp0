@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.template.tp0;
 
-import java.util.Random;
 import java.util.Stack;
 
 /**
@@ -9,10 +8,9 @@ import java.util.Stack;
 public class ExpresionPunto implements IExpresion {
 
     //region Metodos
-    public void interpret(Stack<Character> pilaCadenas)
-    {
-        int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(32,255);
-        char randomNum =  (char)(numeroAleatorio);
+    public void interpret(Stack<Character> pilaCadenas) {
+        int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(32, 255);
+        char randomNum = (char) (numeroAleatorio);
         pilaCadenas.push(randomNum);
     }
     //endregion

@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.template.tp0;
 
-import java.util.Random;
 import java.util.Stack;
 
 /**
@@ -36,8 +35,8 @@ public class ExpresionCuantificadorCeroUno implements IExpresion {
                 }
             }
         }else {
-            int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0,1);
-            if(numeroAleatorio==1){
+            int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
+            if (numeroAleatorio == 1) {
                 Character caracter = pilaCadenas.pop();
                 pilaCadenas.push(caracter);
             }

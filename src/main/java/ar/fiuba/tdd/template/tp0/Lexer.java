@@ -31,12 +31,13 @@ public class Lexer {
             while (caracter != ']') {
                 conjunto.add(caracter);
                 caracter = siguienteCaracter();
-            };
+            }
+            ;
 
             expresion = new ExpresionConjunto(conjunto);
 
 
-        }else if (ExpresionFactoryEnum.fromToken(caracter) != null) {
+        } else if (ExpresionFactoryEnum.fromToken(caracter) != null) {
             expresion = ExpresionFactoryEnum.fromToken(caracter).obtenerExpresion(maxLength);
         } else {
 
