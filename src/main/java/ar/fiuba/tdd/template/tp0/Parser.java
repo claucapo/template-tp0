@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * Created by CLAUDIO on 19/3/2016.
  */
-public class Parser {
+class Parser {
 
     private final Lexer lexer;
 
@@ -17,7 +17,7 @@ public class Parser {
 
     public List<String> parse(int numberOfResults) throws Exception {
 
-        Stack<Character> context = new Stack<Character>();
+        Stack<Character> context = new Stack<>();
         IExpresion expresion = lexer.siguienteExpresion();
 
         List<String> salida = new ArrayList<>();

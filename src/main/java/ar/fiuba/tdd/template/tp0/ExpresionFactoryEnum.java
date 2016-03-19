@@ -39,7 +39,7 @@ public enum ExpresionFactoryEnum {
 
 
     //region Atributos
-    private static final Map<String, ExpresionFactoryEnum> mapaCaracteres = new HashMap<String, ExpresionFactoryEnum>();
+    private static final Map<String, ExpresionFactoryEnum> mapaCaracteres = new HashMap<>();
 
     static {
         for (ExpresionFactoryEnum expresion : values())

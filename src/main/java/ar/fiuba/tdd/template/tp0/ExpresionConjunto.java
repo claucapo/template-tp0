@@ -24,7 +24,7 @@ public class ExpresionConjunto implements IExpresion {
         pilaCadena.push((Character) getContenidoConjunto().toArray()[RandomUtil.obtenerNumeroAleatorio(1, getContenidoConjunto().size() - 1)]);
     }
 
-    public Set<Character> getContenidoConjunto() {
+    private Set<Character> getContenidoConjunto() {
         return contenidoConjunto;
     }
 

@@ -9,7 +9,7 @@ import java.util.Set;
 class Lexer {
 
     private final String cadenaRegexp;
-    private int maxLength;
+    private final int maxLength;
     private int offset = 0;
 
     public Lexer(String cadenaRegexp, int maxLength) {

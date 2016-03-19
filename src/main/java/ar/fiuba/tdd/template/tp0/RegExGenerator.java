@@ -1,12 +1,10 @@
 package ar.fiuba.tdd.template.tp0;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class RegExGenerator {
+class RegExGenerator {
 
-    private ArrayList<IExpresion> parseTree = new ArrayList<IExpresion>();
-    private int maxLength;
+    private final int maxLength;
 
     public RegExGenerator(int maxLength) {
         this.maxLength = maxLength;
