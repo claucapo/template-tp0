@@ -26,7 +26,7 @@ class Lexer {
             expresion = null;
         } else if (caracter == '[') {
 
-            Set<Character> conjunto = new HashSet<Character>();
+            Set<Character> conjunto = new HashSet<>();
             caracter = siguienteCaracter();
 
             while (caracter != ']') {

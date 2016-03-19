@@ -12,24 +12,21 @@ public class ExpresionCuantificadorCeroMuchos implements IExpresion {
     //endregion Atributos
 
     //region Constructores
-    public ExpresionCuantificadorCeroMuchos(int maximo)
-    {
+    public ExpresionCuantificadorCeroMuchos(int maximo) {
         this.maximo = maximo;
     }
     //endregion
 
     //region Metodos
-    public void interpret(Stack<Character> pilaCadena)
-    {
-            int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
-            if (numeroAleatorio == 1) {
-                Character caracter = pilaCadena.pop();
+    public void interpret(Stack<Character> pilaCadena) {
+        int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
+        if (numeroAleatorio == 1) {
+            Character caracter = pilaCadena.pop();
 
-                for(int i=1;i<=maximo;i++)
-                {
-                    pilaCadena.push(caracter);
-                }
+            for (int i = 1; i <= maximo; i++) {
+                pilaCadena.push(caracter);
             }
+        }
 
     }
     //endregion

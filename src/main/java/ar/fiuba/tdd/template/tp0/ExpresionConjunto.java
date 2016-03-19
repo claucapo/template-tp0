@@ -21,7 +21,8 @@ public class ExpresionConjunto implements IExpresion {
     //region Metodos
 
     public void interpret(Stack<Character> pilaCadena) {
-        pilaCadena.push((Character) getContenidoConjunto().toArray()[RandomUtil.obtenerNumeroAleatorio(1, getContenidoConjunto().size() - 1)]);
+        int index = RandomUtil.obtenerNumeroAleatorio(1, getContenidoConjunto().size() - 1);
+        pilaCadena.push((Character) getContenidoConjunto().toArray()[index]);
     }
 
     private Set<Character> getContenidoConjunto() {

@@ -14,14 +14,14 @@ public class ExpresionCuantificadorUnoMuchos implements IExpresion {
     }
 
     public void interpret(Stack<Character> pilaCadena) {
-            int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
-            if (numeroAleatorio == 1) {
-                Character caracter = pilaCadena.pop();
+        int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
+        if (numeroAleatorio == 1) {
+            Character caracter = pilaCadena.pop();
 
-                for (int i = 1; i <= maximo; i++) {
-                    pilaCadena.push(caracter);
-                }
+            for (int i = 1; i <= maximo; i++) {
+                pilaCadena.push(caracter);
             }
+        }
 
     }
 }
