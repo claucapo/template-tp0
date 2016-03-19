@@ -9,7 +9,7 @@ import java.util.Stack;
 public class ExpresionConjunto implements IExpresion {
 
     //region Atributos
-    private Set<Character> contenidoConjunto;
+    private final Set<Character> contenidoConjunto;
     //endregion
 
     //region Constructor

@@ -7,35 +7,13 @@ import java.util.Stack;
  */
 public class ExpresionCuantificadorUnoMuchos implements IExpresion {
 
-    private int maximo;
-    private ExpresionConjunto conjunto;
+    private final int maximo;
 
     public ExpresionCuantificadorUnoMuchos(int maximo) {
         this.maximo = maximo;
     }
 
-    public ExpresionCuantificadorUnoMuchos(int maximo, ExpresionConjunto conjunto) {
-        this.maximo = maximo;
-        this.conjunto = conjunto;
-    }
-
     public void interpret(Stack<Character> pilaCadena) {
-        if (null != conjunto) {
-            int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
-            if (numeroAleatorio == 1) {
-                for (int i = 1; i <= maximo; i++) {
-                    for (Character item : conjunto.getContenidoConjunto()
-                            ) {
-                        pilaCadena.push(item);
-                    }
-                }
-            } else {
-                for (Character item : conjunto.getContenidoConjunto()
-                        ) {
-                    pilaCadena.push(item);
-                }
-            }
-        } else {
             int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
             if (numeroAleatorio == 1) {
                 Character caracter = pilaCadena.pop();
@@ -44,7 +22,6 @@ public class ExpresionCuantificadorUnoMuchos implements IExpresion {
                     pilaCadena.push(caracter);
                 }
             }
-        }
 
     }
 }

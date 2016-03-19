@@ -6,9 +6,9 @@ import java.util.Set;
 /**
  * Created by CLAUDIO on 19/3/2016.
  */
-public class Lexer {
+class Lexer {
 
-    private String cadenaRegexp;
+    private final String cadenaRegexp;
     private int maxLength;
     private int offset = 0;
 
@@ -20,9 +20,10 @@ public class Lexer {
     public IExpresion siguienteExpresion() throws Exception {
 
         Character caracter = siguienteCaracter();
-        IExpresion expresion = null;
+        IExpresion expresion;
 
         if (caracter == null) {
+            expresion = null;
         } else if (caracter == '[') {
 
             Set<Character> conjunto = new HashSet<Character>();

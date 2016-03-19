@@ -13,10 +13,9 @@ public class RegExGenerator {
     }
 
     public List<String> generate(String regEx, int numberOfResults) throws Exception {
-        List<String> listaSalida = new ArrayList<String>();
         Lexer lexer = new Lexer(regEx, maxLength);
         Parser parser = new Parser(lexer);
-        return parser.parse();
+        return parser.parse(numberOfResults);
 
     }
 }

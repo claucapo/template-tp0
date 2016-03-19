@@ -9,29 +9,33 @@ import java.util.Stack;
  */
 public class Parser {
 
-    private Lexer lexer;
+    private final Lexer lexer;
 
     public Parser(Lexer lexer) {
         this.lexer = lexer;
     }
 
-    public List<String> parse() throws Exception {
+    public List<String> parse(int numberOfResults) throws Exception {
 
         Stack<Character> context = new Stack<Character>();
         IExpresion expresion = lexer.siguienteExpresion();
+
         List<String> salida = new ArrayList<>();
-        String result = "";
+        for (int i = 1; i <= numberOfResults; i++) {
+            String result = "";
 
-        while (expresion != null) {
-            expresion.interpret(context);
-            expresion = lexer.siguienteExpresion();
+            while (expresion != null) {
+                expresion.interpret(context);
+                expresion = lexer.siguienteExpresion();
+            }
+
+            for (Character character : context) {
+                result += character;
+            }
+
+            salida.add(result);
         }
 
-        for (Character character : context) {
-            result += character;
-        }
-
-        salida.add(result);
         return salida;
     }
 }

@@ -8,7 +8,6 @@ import java.util.Stack;
 public class ExpresionCuantificadorCeroUno implements IExpresion {
 
     //region Atributos
-    private ExpresionConjunto conjunto;
     //endregion
 
     //region Constructores
@@ -16,32 +15,16 @@ public class ExpresionCuantificadorCeroUno implements IExpresion {
     {
 
     }
-
-    public ExpresionCuantificadorCeroUno(ExpresionConjunto conjunto)
-    {
-        this.conjunto=conjunto;
-    }
     //endregion
 
     //region Metodos
     public void interpret(Stack<Character> pilaCadenas)
     {
-        if(null!=conjunto){
-            int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0,1);
-            if(numeroAleatorio==1){
-                for (Character item:conjunto.getContenidoConjunto()
-                        ) {
-                    pilaCadenas.push(item);
-                }
-            }
-        }else {
             int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
             if (numeroAleatorio == 1) {
                 Character caracter = pilaCadenas.pop();
                 pilaCadenas.push(caracter);
             }
-
-        }
     }
     //endregion
 }

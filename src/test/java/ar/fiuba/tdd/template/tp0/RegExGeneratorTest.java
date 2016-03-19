@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 public class RegExGeneratorTest {
 
-    public static final int MAXLENGTH;
+    private static final int MAXLENGTH;
 
     static {
         MAXLENGTH = 5;

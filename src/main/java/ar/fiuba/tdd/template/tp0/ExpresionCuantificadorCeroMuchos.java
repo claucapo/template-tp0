@@ -8,8 +8,7 @@ import java.util.Stack;
 public class ExpresionCuantificadorCeroMuchos implements IExpresion {
 
     //region Atributos
-    private int maximo;
-    private ExpresionConjunto conjunto;
+    private final int maximo;
     //endregion Atributos
 
     //region Constructores
@@ -17,25 +16,11 @@ public class ExpresionCuantificadorCeroMuchos implements IExpresion {
     {
         this.maximo = maximo;
     }
-
-    public ExpresionCuantificadorCeroMuchos(int maximo,ExpresionConjunto conjunto)
-    {
-        this.maximo = maximo;
-        this.conjunto=conjunto;
-    }
     //endregion
 
     //region Metodos
     public void interpret(Stack<Character> pilaCadena)
     {
-        if(null!=conjunto){
-            for(int i=1;i<=maximo;i++) {
-                for (Character item:conjunto.getContenidoConjunto()
-                     ) {
-                    pilaCadena.push(item);
-                }
-            }
-        }else{
             int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
             if (numeroAleatorio == 1) {
                 Character caracter = pilaCadena.pop();
@@ -45,7 +30,6 @@ public class ExpresionCuantificadorCeroMuchos implements IExpresion {
                     pilaCadena.push(caracter);
                 }
             }
-        }
 
     }
     //endregion

@@ -8,7 +8,7 @@ import java.util.Stack;
 public class ExpresionCaracter implements IExpresion {
 
     //region Atributos
-    private Character caracter;
+    private final Character caracter;
     //endregion
 
     //region Constructor
