@@ -22,7 +22,7 @@ class Parser {
 
         List<String> salida = new ArrayList<>();
         for (int i = 1; i <= numberOfResults; i++) {
-            String result = "";
+            StringBuffer result = new StringBuffer();
 
             while (expresion != null) {
                 expresion.interpret(context);
@@ -30,10 +30,10 @@ class Parser {
             }
 
             for (Character character : context) {
-                result += character;
+                result.append(character);
             }
 
-            salida.add(result);
+            salida.add(result.toString());
         }
 
         return salida;

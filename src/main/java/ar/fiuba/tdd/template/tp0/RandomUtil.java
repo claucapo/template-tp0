@@ -9,6 +9,6 @@ class RandomUtil {
     public static int obtenerNumeroAleatorio(int minimo, int maximo) {
         Random random = new Random();
         int interval = maximo - minimo + 1;
-        return minimo + Math.abs(random.nextInt()) % interval;
+        return minimo + random.nextInt(maximo) % interval;
     }
 }
