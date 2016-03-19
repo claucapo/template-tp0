@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.template.tp0;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -9,19 +8,30 @@ import java.util.Stack;
  */
 public class ExpresionConjunto  implements IExpresion {
 
-    private List<String> contenidoConjunto = new ArrayList<String>();
+    //region Atributos
+    private Set<Character> contenidoConjunto;
+    //endregion
 
-    public void interpret(Stack<String> s) {
-        for (String item : contenidoConjunto) {
-            s.push(item);
-        }
+    //region Constructor
+    public ExpresionConjunto(Set<Character> contenidoConjunto)
+    {
+        this.contenidoConjunto = contenidoConjunto;
+    }
+    //endregion
+
+    //region Metodos
+
+    public void interpret(Stack<Character> s) {
+         s.push((Character)getContenidoConjunto().toArray()[RandomUtil.obtenerNumeroAleatorio(1,getContenidoConjunto().size()-1)]);
     }
 
-    public List<String> getContenidoConjunto() {
+    public Set<Character> getContenidoConjunto() {
         return contenidoConjunto;
     }
 
-    public void setContenidoConjunto(List<String> contenidoConjunto) {
-        this.contenidoConjunto = contenidoConjunto;
-    }
+    //endregion
+
+
+
+
 }

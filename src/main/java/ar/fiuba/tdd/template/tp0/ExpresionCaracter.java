@@ -7,16 +7,22 @@ import java.util.Stack;
  */
 public class ExpresionCaracter implements IExpresion  {
 
-    private String caracter;
+    //region Atributos
+    private Character caracter;
+    //endregion
 
-    public ExpresionCaracter(String caracter)
+    //region Constructor
+    public ExpresionCaracter(Character caracter)
     {
         this.caracter = caracter;
     }
+    //endregion
 
-    public void interpret(Stack<String> pilaCadenas)
+    //region Metodos
+    public void interpret(Stack<Character> pilaCadenas)
     {
         pilaCadenas.push(caracter);
     }
+    //endregion
 
 }

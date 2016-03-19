@@ -9,137 +9,76 @@ import java.util.Map;
  */
 public enum ExpresionFactoryEnum {
 
+
+        //region Enumeradores
         CUANTIFICADOR_CERO_MUCHOS("*"){
             @Override
-            public IExpresion obtenerExpresion()
+            public IExpresion obtenerExpresion(int maxLength)
             {
-                if(escape){
-                    escape = false;
-                    return  new ExpresionCaracter(token);
-                }
-
-                return new ExpresionCuantificadorCeroMuchos(8);
+                return new ExpresionCuantificadorCeroMuchos(maxLength);
             }
         },
         CUANTIFICADOR_CERO_UNO("?")
         {
             @Override
-            public IExpresion obtenerExpresion()
+            public IExpresion obtenerExpresion(int maxLength)
             {
-                if(escape){
-                    escape = false;
-                    return  new ExpresionCaracter(token);
-                }
                 return new ExpresionCuantificadorCeroUno();
             }
         },
         CUANTIFICADOR_UNO_MUCHOS("+")
         {
             @Override
-            public IExpresion obtenerExpresion()
+            public IExpresion obtenerExpresion(int maxLength)
             {
-                if(escape){
-                    escape = false;
-                    return  new ExpresionCaracter(token);
-                }
-                return new ExpresionCuantificadorUnoMuchos(8);
+                return new ExpresionCuantificadorUnoMuchos(maxLength);
             }
 
         },
         EXPRESION_PUNTO(".")
         {
             @Override
-            public IExpresion obtenerExpresion()
+            public IExpresion obtenerExpresion(int maxLength)
             {
-                if(escape){
-                    escape = false;
-                    return  new ExpresionCaracter(token);
-                }
                 return new ExpresionPunto();
             }
-        },EXPRESION_ESCAPE("\\")
+        };
+        //endregion
+
+
+        //region Atributos
+            private static final Map<String, ExpresionFactoryEnum> mapaCaracteres = new HashMap<String, ExpresionFactoryEnum>();
+
+            static
             {
-                @Override
-                public IExpresion obtenerExpresion()
-                {
-                    if(!escape){
-                        escape = true;
-                        return new ExpresionEscape();
-                    }else{
-                        escape = false;
-                        return new ExpresionCaracter(token);
-                    }
+                for(ExpresionFactoryEnum expresion : values())
+                    mapaCaracteres.put(expresion.token, expresion);
+            }
 
-                }
-            },EXPRESION_INICIO_CONJUNTO("[")
-            {
-                @Override
-                public IExpresion obtenerExpresion()
-                {
-                    inicioConjunto = true;
-                    conjunto = new ExpresionConjunto();
-                    return new ExpresionEscape();
-                }
-            },EXPRESION_FIN_CONJUNTO("]")
-            {
-                @Override
-                public IExpresion obtenerExpresion()
-                {
-                    inicioConjunto = false;
-                    ExpresionConjunto salida = new ExpresionConjunto();
-                    salida.setContenidoConjunto(conjunto.getContenidoConjunto());
-                    conjunto = null;
-                    return salida;
-                }
-            };
+        final String token;
+        //endregion
 
-        private static final Map<String, ExpresionFactoryEnum> stringMap = new HashMap<String, ExpresionFactoryEnum>();
-
-        static
-        {
-            for(ExpresionFactoryEnum expresion : values())
-                stringMap.put(expresion.toString(), expresion);
-        }
-
-        private static boolean escape = false;
-        private static boolean inicioConjunto = false;
-        private static boolean finConjunto = false;
-        private static ExpresionConjunto conjunto = null;
+        //region Constructor
 
         private ExpresionFactoryEnum(String token)
         {
             this.token = token;
         }
 
-        final String token;
+        //endregion
 
-        @Override
-        public String toString()
+       //region Metodos
+        public static ExpresionFactoryEnum fromToken(Character token)
         {
-            return token;
+            return mapaCaracteres.get(token.toString());
         }
 
-        public static ExpresionFactoryEnum fromToken(String token)
-        {
-            return stringMap.get(token);
-        }
+        public abstract IExpresion obtenerExpresion(int maxLength);
 
-        public abstract IExpresion obtenerExpresion();
-
-        public static IExpresion obtenerExpresionCaracter(String caracter)
+        public static IExpresion obtenerExpresionCaracter(Character caracter)
         {
-            if(inicioConjunto && null!=conjunto)
-            {
-                conjunto.getContenidoConjunto().add(caracter);
-                return new ExpresionEscape();
-            }  else if(caracter == "\\")
-            {
-                return new ExpresionEscape();
-            } else
-            {
                 return new ExpresionCaracter(caracter);
-            }
-
         }
+        //endregion
 
 }

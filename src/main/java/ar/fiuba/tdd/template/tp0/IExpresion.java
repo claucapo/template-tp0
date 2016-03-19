@@ -6,5 +6,5 @@ import java.util.Stack;
  * Created by CLAUDIO on 15/3/2016.
  */
 public interface IExpresion {
-        public void interpret(Stack<String> pilaCadenas);
+        public void interpret(Stack<Character> pilaCadenas);
 }

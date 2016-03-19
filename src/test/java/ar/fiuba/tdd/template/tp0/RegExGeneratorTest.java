@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 public class RegExGeneratorTest {
 
-    private boolean validate(String regEx, int numberOfResults) {
+    private boolean validate(String regEx, int numberOfResults) throws Exception {
         RegExGenerator generator = new RegExGenerator(8);
         // TODO: Uncomment parameters
         List<String> results = generator.generate(regEx, numberOfResults);
@@ -29,43 +29,43 @@ public class RegExGeneratorTest {
     //TODO: Uncomment these tests
 
     @Test
-    public void testAnyCharacter() {
+    public void testAnyCharacter() throws Exception {
         assertTrue(validate(".", 1));
     }
 
     @Test
-    public void testMultipleCharacters() {
+    public void testMultipleCharacters() throws Exception {
         assertTrue(validate("...", 1));
     }
 
-    @Test
-    public void testLiteral() {
+    @Test(expected = Exception.class)
+    public void testLiteral() throws Exception {
         assertTrue(validate("\\@", 1));
     }
 
-    @Test
-    public void testLiteralDotCharacter() {
+    @Test(expected = Exception.class)
+    public void testLiteralDotCharacter() throws Exception {
         assertTrue(validate("\\@..", 1));
     }
 
-    @Test
-    public void testZeroOrOneCharacter() {
+    @Test(expected = Exception.class)
+    public void testZeroOrOneCharacter() throws Exception {
         assertTrue(validate("\\@.h?", 1));
     }
 
     @Test
-    public void testCharacterSet() {
+    public void testCharacterSet() throws Exception {
         assertTrue(validate("[abc]", 1));
     }
 
     @Test
-    public void testCharacterSetWithQuantifiers() {
+    public void testCharacterSetWithQuantifiers() throws Exception {
         assertTrue(validate("[abc]+", 1));
     }
 
     // Tests Agregados
     @Test
-    public void testCuantificadorCeroMuchosJuntoConExpresionPunto() {
+    public void testCuantificadorCeroMuchosJuntoConExpresionPunto() throws Exception {
         assertTrue(validate(".*", 1));
     }
 

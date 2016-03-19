@@ -8,7 +8,8 @@ import java.util.Stack;
  */
 public class ExpresionPunto implements IExpresion {
 
-    public void interpret(Stack<String> pilaCadenas)
+    //region Metodos
+    public void interpret(Stack<Character> pilaCadenas)
     {
         Random rn = new Random();
         int maximo = 255;
@@ -16,6 +17,8 @@ public class ExpresionPunto implements IExpresion {
         int n = maximo - minimo + 1;
         int i = rn.nextInt() % n;
         char randomNum =  (char)(minimo + i);
-        pilaCadenas.push("" + randomNum);
+        pilaCadenas.push(randomNum);
     }
+    //endregion
+
 }

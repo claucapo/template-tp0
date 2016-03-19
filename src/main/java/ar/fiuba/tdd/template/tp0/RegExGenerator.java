@@ -13,60 +13,11 @@ public class RegExGenerator {
         this.maxLength = maxLength;
     }
 
-    public List<String> generate(String regEx, int numberOfResults) {
+    public List<String> generate(String regEx, int numberOfResults) throws Exception{
         List<String> listaSalida = new ArrayList<String>();
-        agregarElementosAlParserTree(regEx);
-        generarSalida(numberOfResults, listaSalida);
-        return listaSalida;
+        Lexer lexer = new Lexer(regEx, maxLength);
+        Parser parser = new Parser(lexer);
+        return parser.parse();
 
-    }
-
-    private void generarSalida(int numberOfResults, List<String> listaSalida) {
-        for(int i=1;i<=numberOfResults;i++){
-            Stack<String> context = procesarParserTree();
-            String salida = "";
-            for(String obj : context)
-            {
-                salida+=obj;
-            }
-            listaSalida.add(salida);
-        }
-    }
-
-    private Stack<String> procesarParserTree() {
-        Stack<String> context = new Stack<String>();
-        for (IExpresion e : parseTree)
-            e.interpret(context);
-        return context;
-    }
-
-    private void agregarElementosAlParserTree(String regEx) {
-        for (char ch: regEx.toCharArray())
-        {
-            String token = "" + ch;
-
-            if (ExpresionFactoryEnum.fromToken(token) != null)
-                parseTree.add(ExpresionFactoryEnum.fromToken(token).obtenerExpresion());
-            else {
-                parseTree.add(ExpresionFactoryEnum.obtenerExpresionCaracter(token));
-            }
-
-        }
-    }
-
-    private boolean isCuanficadorUnoMuchos(String token) {
-        return token.equals("+");
-    }
-
-    private boolean isCuanficadorCeroMuchos(String token) {
-        return token.equals("*");
-    }
-
-    private boolean isCuanficadorCeroUno(String token) {
-        return token.equals("?");
-    }
-
-    private boolean isExpresionPunto(String token) {
-        return token.equals(".");
     }
 }
