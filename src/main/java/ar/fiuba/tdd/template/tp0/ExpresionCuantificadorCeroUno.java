@@ -27,9 +27,7 @@ public class ExpresionCuantificadorCeroUno implements IExpresion {
     public void interpret(Stack<Character> pilaCadenas) throws Exception {
         int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
         if (numeroAleatorio == 1) {
-            if (pilaCadenas.size() == 0) {
-                throw new Exception("Regexp mal formada.");
-            }
+            new Validacion(pilaCadenas).validar();
             Character caracter = pilaCadenas.pop();
             pilaCadenas.push(caracter);
         }

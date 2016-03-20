@@ -35,9 +35,7 @@ public class ExpresionCuantificadorCeroMuchos implements IExpresion {
     public void interpret(Stack<Character> pilaCadena) throws Exception {
         int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
         if (numeroAleatorio == 1) {
-            if (pilaCadena.size() == 0) {
-                throw new Exception("Regexp mal formada.");
-            }
+            new Validacion(pilaCadena).validar();
             Character caracter = pilaCadena.pop();
 
             for (int i = 1; i <= maximo; i++) {
@@ -46,6 +44,7 @@ public class ExpresionCuantificadorCeroMuchos implements IExpresion {
         }
 
     }
+
 
     //endregion
 }

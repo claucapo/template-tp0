@@ -35,24 +35,21 @@ public class ExpresionCuantificadorUnoMuchos implements IExpresion {
      */
     public void interpret(Stack<Character> pilaCadena) throws Exception {
         int numeroAleatorio = RandomUtil.obtenerNumeroAleatorio(0, 1);
+        new Validacion(pilaCadena).validar();
         if (numeroAleatorio == 0) {
-            if (pilaCadena.size() == 0) {
-                throw new Exception("Regexp mal formada.");
-            }
             Character caracter = pilaCadena.pop();
 
             for (int i = 1; i <= maximo; i++) {
                 pilaCadena.push(caracter);
             }
         } else {
-            if (pilaCadena.size() == 0) {
-                throw new Exception("Regexp mal formada.");
-            }
+
             Character caracter = pilaCadena.pop();
             pilaCadena.push(caracter);
         }
 
     }
+
 
     //endregion
 }
