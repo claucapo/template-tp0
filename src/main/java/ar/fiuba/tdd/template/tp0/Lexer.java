@@ -5,8 +5,7 @@ import java.util.Set;
 
 
 /**
- * Lexer.
- * Clase Lexer
+ * Clase Lexer.
  * Implementa el Patron Lexer
  */
 class Lexer {
@@ -22,7 +21,7 @@ class Lexer {
     //region Constructor
 
     /**
-     * Instancia un nuevo Objeto Lexer
+     * Instancia un nuevo Objeto Lexer.
      *
      * @param cadenaRegexp regular expression
      * @param maxLength    maximo generador de caracteres
@@ -50,43 +49,50 @@ class Lexer {
         if (caracter == null) {
             expresion = null;
         } else if (caracter == '[') {
-
-            Set<Character> conjunto = new HashSet<>();
-            caracter = siguienteCaracter();
-
-            while (caracter != null && caracter != ']') {
-                conjunto.add(caracter);
-                caracter = siguienteCaracter();
-            }
-
-            if (caracter == null) {
-                throw new Exception("Regexp mal formada.");
-            }
-
-            expresion = new ExpresionConjunto(conjunto);
-
-
+            expresion = expresionConjunto();
         } else if (ExpresionFactoryEnum.fromToken(caracter) != null) {
             expresion = ExpresionFactoryEnum.fromToken(caracter).obtenerExpresion(maxLength);
         } else {
-
             if (caracter == '\\') {
-
-                caracter = siguienteCaracter();
-
-                if (ExpresionFactoryEnum.fromToken(caracter) != null) {
-                    expresion = ExpresionFactoryEnum.fromToken(caracter).obtenerExpresion(maxLength);
-                } else if (caracter == '\\') {
-                    expresion = ExpresionFactoryEnum.obtenerExpresionCaracter(caracter);
-                } else {
-                    throw new Exception("Regexp mal formada.");
-                }
-
+                expresion = expresionEscapeada();
             } else {
                 expresion = ExpresionFactoryEnum.obtenerExpresionCaracter(caracter);
             }
         }
 
+        return expresion;
+    }
+
+    private IExpresion expresionConjunto() throws Exception {
+
+        Character caracter;
+        Set<Character> conjunto = new HashSet<>();
+        caracter = siguienteCaracter();
+
+        while (caracter != null && caracter != ']') {
+            conjunto.add(caracter);
+            caracter = siguienteCaracter();
+        }
+
+        if (caracter == null) {
+            throw new Exception("Regexp mal formada.");
+        }
+
+        IExpresion expresion = new ExpresionConjunto(conjunto);
+        return expresion;
+    }
+
+    private IExpresion expresionEscapeada() throws Exception {
+        Character caracter = siguienteCaracter();
+
+        IExpresion expresion;
+        if (ExpresionFactoryEnum.fromToken(caracter) != null) {
+            expresion = ExpresionFactoryEnum.fromToken(caracter).obtenerExpresion(maxLength);
+        } else if (caracter == '\\') {
+            expresion = ExpresionFactoryEnum.obtenerExpresionCaracter(caracter);
+        } else {
+            throw new Exception("Regexp mal formada.");
+        }
         return expresion;
     }
 

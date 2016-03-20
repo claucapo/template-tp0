@@ -4,7 +4,7 @@ import java.util.Stack;
 
 
 /**
- * Clase ExpresionCuantificadorCeroMuchos
+ * Clase ExpresionCuantificadorCeroMuchos.
  * Implementa IExpresion
  */
 public class ExpresionCuantificadorCeroMuchos implements IExpresion {
@@ -28,7 +28,7 @@ public class ExpresionCuantificadorCeroMuchos implements IExpresion {
     //region Metodos
 
     /**
-     * Metodo interpret
+     * Metodo interpret.
      *
      * @param pilaCadena Pila con los elementos del cuantificador
      */

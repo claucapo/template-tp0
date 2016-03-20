@@ -3,7 +3,7 @@ package ar.fiuba.tdd.template.tp0;
 import java.util.Stack;
 
 /**
- * Clase ExpresionCuanificadorCeroUno
+ * Clase ExpresionCuanificadorCeroUno.
  */
 public class ExpresionCuantificadorCeroUno implements IExpresion {
 
@@ -20,7 +20,7 @@ public class ExpresionCuantificadorCeroUno implements IExpresion {
     //region Metodos
 
     /**
-     * Metodo interpret
+     * Metodo interpret.
      *
      * @param pilaCadenas Pila con los elementos del cuantificador
      */

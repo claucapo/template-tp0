@@ -4,8 +4,8 @@ import java.util.Stack;
 
 
 /**
- * Clase ExpresionCaracter
- * Implementa IExpresioin
+ * Clase ExpresionCaracter.
+ * Implementa IExpresion
  */
 public class ExpresionCaracter implements IExpresion {
 
@@ -16,7 +16,7 @@ public class ExpresionCaracter implements IExpresion {
     //region Constructor
 
     /**
-     * Instancia un nuevo objeto ExpresionCaracter
+     * Instancia un nuevo objeto ExpresionCaracter.
      *
      * @param caracter caracter
      */
@@ -29,7 +29,7 @@ public class ExpresionCaracter implements IExpresion {
     //region Metodos
 
     /**
-     * Metodo interpret
+     * Metodo interpret.
      *
      * @param pilaCadenas pila de elementos a parsear
      */

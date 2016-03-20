@@ -11,7 +11,7 @@ interface IExpresion {
     //region Metodos
 
     /**
-     * Metodo Interpres
+     * Metodo Interpret.
      *
      * @param pilaCadenas pilaCadenas
      */

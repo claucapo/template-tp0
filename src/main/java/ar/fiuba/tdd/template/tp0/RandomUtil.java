@@ -4,7 +4,7 @@ import java.util.Random;
 
 
 /**
- * Clase Random Util
+ * Clase Random Util.
  * Clase util para los numeros aleatorios
  */
 class RandomUtil {
@@ -12,7 +12,7 @@ class RandomUtil {
     //region Metodos
 
     /**
-     * Obtener Numero Aleatorio
+     * Obtener Numero Aleatorio.
      *
      * @param minimo minimo
      * @param maximo maximo

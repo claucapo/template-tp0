@@ -3,7 +3,7 @@ package ar.fiuba.tdd.template.tp0;
 import java.util.List;
 
 /**
- * Clase RegExGenerator
+ * Clase RegExGenerator.
  */
 class RegExGenerator {
 
@@ -16,7 +16,7 @@ class RegExGenerator {
     //region Constructor
 
     /**
-     * Instancia un nuevo Objeto RegExGeneratos
+     * Instancia un nuevo Objeto RegExGeneratos.
      *
      * @param maxLength maximo generador
      */
@@ -29,7 +29,7 @@ class RegExGenerator {
     //region Metodos
 
     /**
-     * Genera la lista de resultados
+     * Genera la lista de resultados.
      *
      * @param regEx           regular expresion
      * @param numberOfResults el numero de resultados

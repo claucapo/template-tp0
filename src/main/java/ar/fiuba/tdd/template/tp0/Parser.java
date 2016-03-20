@@ -19,7 +19,7 @@ class Parser {
     //region Constructor
 
     /**
-     * Instancia un nuevo Objeto Parser
+     * Instancia un nuevo Objeto Parser.
      *
      * @param lexer lexer
      */
@@ -32,7 +32,7 @@ class Parser {
     //region Metodos
 
     /**
-     * Metodo Parser
+     * Metodo Parser.
      *
      * @param numberOfResults El numero de resultados
      * @return la lista de salida

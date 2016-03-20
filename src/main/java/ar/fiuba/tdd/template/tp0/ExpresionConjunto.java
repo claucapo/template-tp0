@@ -4,7 +4,7 @@ import java.util.Set;
 import java.util.Stack;
 
 /**
- * Clase Expresion Conjunto
+ * Clase Expresion Conjunto.
  * Implementa IExpresion
  */
 public class ExpresionConjunto implements IExpresion {
@@ -16,7 +16,7 @@ public class ExpresionConjunto implements IExpresion {
     //region Constructor
 
     /**
-     * Instancia un nuevo objeto ExpresionConjunto
+     * Instancia un nuevo objeto ExpresionConjunto.
      *
      * @param contenidoConjunto contenidoConjunto
      */
@@ -29,7 +29,7 @@ public class ExpresionConjunto implements IExpresion {
     //region Metodos
 
     /**
-     * Metodo Interpret
+     * Metodo Interpret.
      *
      * @param pilaCadena Pila con los elementos del conjunto
      */
@@ -39,7 +39,7 @@ public class ExpresionConjunto implements IExpresion {
     }
 
     /**
-     * Metodo getContenidoConjunto
+     * Metodo getContenidoConjunto.
      */
     private Set<Character> getContenidoConjunto() {
         return contenidoConjunto;

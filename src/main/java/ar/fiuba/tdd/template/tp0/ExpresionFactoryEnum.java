@@ -60,8 +60,10 @@ public enum ExpresionFactoryEnum {
     private static final Map<String, ExpresionFactoryEnum> mapaCaracteres = new HashMap<>();
 
     static {
-        for (ExpresionFactoryEnum expresion : values())
+        for (ExpresionFactoryEnum expresion : values()) {
             mapaCaracteres.put(expresion.token, expresion);
+        }
+
     }
 
     /**
@@ -83,7 +85,7 @@ public enum ExpresionFactoryEnum {
     //region Metodos
 
     /**
-     * Obtiene una instancia Enum de un caracter
+     * Obtiene una instancia Enum de un caracter.
      *
      * @param token token
      * @return instancia enum factory
@@ -93,7 +95,7 @@ public enum ExpresionFactoryEnum {
     }
 
     /**
-     * Obtiene una instancia de Expresion Caracter
+     * Obtiene una instancia de Expresion Caracter.
      *
      * @param caracter caracter
      * @return Objeto Expresion
@@ -103,7 +105,7 @@ public enum ExpresionFactoryEnum {
     }
 
     /**
-     * Metodo Abstracto Obtener Expresion
+     * Metodo Abstracto Obtener Expresion.
      *
      * @param maxLength maximo
      * @return objeto expresion
