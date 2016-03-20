@@ -4,17 +4,40 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+
 /**
- * Created by CLAUDIO on 19/3/2016.
+ * The type Parser.
  */
 class Parser {
 
+    //region Atributos
+
     private final Lexer lexer;
 
+    //endregion
+
+    //region Constructor
+
+    /**
+     * Instancia un nuevo Objeto Parser
+     *
+     * @param lexer lexer
+     */
     public Parser(Lexer lexer) {
         this.lexer = lexer;
     }
 
+    //endregion
+
+    //region Metodos
+
+    /**
+     * Metodo Parser
+     *
+     * @param numberOfResults El numero de resultados
+     * @return la lista de salida
+     * @throws Exception retorna exception si esta mal formada la regular expresion
+     */
     public List<String> parse(int numberOfResults) throws Exception {
 
         Stack<Character> context = new Stack<>();
@@ -38,5 +61,7 @@ class Parser {
 
         return salida;
     }
+
+    //endregion
 }
 

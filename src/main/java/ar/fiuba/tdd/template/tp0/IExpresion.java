@@ -2,9 +2,20 @@ package ar.fiuba.tdd.template.tp0;
 
 import java.util.Stack;
 
+
 /**
- * Created by CLAUDIO on 15/3/2016.
+ * Interface Expresion.
  */
 interface IExpresion {
-    void interpret(Stack<Character> pilaCadenas);
+
+    //region Metodos
+
+    /**
+     * Metodo Interpres
+     *
+     * @param pilaCadenas pilaCadenas
+     */
+    void interpret(Stack<Character> pilaCadenas) throws Exception;
+
+    //endregion
 }

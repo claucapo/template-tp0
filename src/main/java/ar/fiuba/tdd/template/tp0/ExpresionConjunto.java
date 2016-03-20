@@ -4,7 +4,8 @@ import java.util.Set;
 import java.util.Stack;
 
 /**
- * Created by CLAUDIO on 15/3/2016.
+ * Clase Expresion Conjunto
+ * Implementa IExpresion
  */
 public class ExpresionConjunto implements IExpresion {
 
@@ -13,18 +14,33 @@ public class ExpresionConjunto implements IExpresion {
     //endregion
 
     //region Constructor
+
+    /**
+     * Instancia un nuevo objeto ExpresionConjunto
+     *
+     * @param contenidoConjunto contenidoConjunto
+     */
     public ExpresionConjunto(Set<Character> contenidoConjunto) {
         this.contenidoConjunto = contenidoConjunto;
     }
+
     //endregion
 
     //region Metodos
 
+    /**
+     * Metodo Interpret
+     *
+     * @param pilaCadena Pila con los elementos del conjunto
+     */
     public void interpret(Stack<Character> pilaCadena) {
         int index = RandomUtil.obtenerNumeroAleatorio(1, getContenidoConjunto().size() - 1);
         pilaCadena.push((Character) getContenidoConjunto().toArray()[index]);
     }
 
+    /**
+     * Metodo getContenidoConjunto
+     */
     private Set<Character> getContenidoConjunto() {
         return contenidoConjunto;
     }

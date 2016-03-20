@@ -3,20 +3,45 @@ package ar.fiuba.tdd.template.tp0;
 import java.util.HashSet;
 import java.util.Set;
 
+
 /**
- * Created by CLAUDIO on 19/3/2016.
+ * Lexer.
+ * Clase Lexer
+ * Implementa el Patron Lexer
  */
 class Lexer {
+
+    //region Atributos
 
     private final String cadenaRegexp;
     private final int maxLength;
     private int offset = 0;
 
+    //endregion
+
+    //region Constructor
+
+    /**
+     * Instancia un nuevo Objeto Lexer
+     *
+     * @param cadenaRegexp regular expression
+     * @param maxLength    maximo generador de caracteres
+     */
     public Lexer(String cadenaRegexp, int maxLength) {
         this.cadenaRegexp = cadenaRegexp;
         this.maxLength = maxLength;
     }
 
+    //endregion
+
+    //region Metodos
+
+    /**
+     * Siguiente expresion expresion.
+     *
+     * @return expresion
+     * @throws Exception exception
+     */
     public IExpresion siguienteExpresion() throws Exception {
 
         Character caracter = siguienteCaracter();
@@ -29,11 +54,14 @@ class Lexer {
             Set<Character> conjunto = new HashSet<>();
             caracter = siguienteCaracter();
 
-            while (caracter != ']') {
+            while (caracter != null && caracter != ']') {
                 conjunto.add(caracter);
                 caracter = siguienteCaracter();
             }
 
+            if (caracter == null) {
+                throw new Exception("Regexp mal formada.");
+            }
 
             expresion = new ExpresionConjunto(conjunto);
 
@@ -74,4 +102,6 @@ class Lexer {
 
         return salida;
     }
+
+    //endregion Metodos
 }
