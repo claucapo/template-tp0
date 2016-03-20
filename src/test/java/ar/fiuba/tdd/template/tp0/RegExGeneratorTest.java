@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Clase RegExGeneratorTest
+ * Clase RegExGeneratorTest.
  */
 public class RegExGeneratorTest {
 
@@ -45,7 +45,7 @@ public class RegExGeneratorTest {
     //region Tests
 
     /**
-     * Test para regular expression de 1 caracter
+     * Test para regular expression de 1 caracter.
      *
      * @throws Exception the exception
      */
@@ -55,7 +55,7 @@ public class RegExGeneratorTest {
     }
 
     /**
-     * Test de regular expression de multiples caracteres
+     * Test de regular expression de multiples caracteres.
      *
      * @throws Exception the exception
      */
@@ -65,7 +65,7 @@ public class RegExGeneratorTest {
     }
 
     /**
-     * Test de una regular expresion mal formada
+     * Test de una regular expresion mal formada.
      *
      * @throws Exception the exception
      */
@@ -75,7 +75,7 @@ public class RegExGeneratorTest {
     }
 
     /**
-     * Test de otra regular expresion mal formada
+     * Test de otra regular expresion mal formada.
      *
      * @throws Exception the exception
      */
@@ -85,7 +85,7 @@ public class RegExGeneratorTest {
     }
 
     /**
-     * Test de una regular expresion de 0 o 1 caracter
+     * Test de una regular expresion de 0 o 1 caracter.
      *
      * @throws Exception the exception
      */
@@ -95,7 +95,7 @@ public class RegExGeneratorTest {
     }
 
     /**
-     * Test de una regular expresion con conjuntos
+     * Test de una regular expresion con conjuntos.
      *
      * @throws Exception the exception
      */
@@ -105,7 +105,7 @@ public class RegExGeneratorTest {
     }
 
     /**
-     * Test de una regular expresion con conjunto y cuantificador +
+     * Test de una regular expresion con conjunto y cuantificador +.
      *
      * @throws Exception the exception
      */
@@ -145,7 +145,7 @@ public class RegExGeneratorTest {
     }
 
     /**
-     * Cuantificador  Sin Caracter
+     * Cuantificador  Sin Caracter.
      *
      * @throws Exception the exception
      */
