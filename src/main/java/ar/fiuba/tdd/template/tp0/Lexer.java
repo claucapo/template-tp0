@@ -14,7 +14,7 @@ class Lexer {
 
     private final String cadenaRegexp;
     private final int maxLength;
-    private int offset = 0;
+    private int offset;
 
     //endregion
 
@@ -29,6 +29,7 @@ class Lexer {
     public Lexer(String cadenaRegexp, int maxLength) {
         this.cadenaRegexp = cadenaRegexp;
         this.maxLength = maxLength;
+        irAlPrincipio();
     }
 
     //endregion
@@ -107,6 +108,11 @@ class Lexer {
         }
 
         return salida;
+    }
+
+
+    public void irAlPrincipio() {
+        offset = 0;
     }
 
     //endregion Metodos

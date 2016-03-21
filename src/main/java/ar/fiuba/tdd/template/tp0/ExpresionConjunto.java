@@ -34,7 +34,7 @@ public class ExpresionConjunto implements IExpresion {
      * @param pilaCadena Pila con los elementos del conjunto
      */
     public void interpret(Stack<Character> pilaCadena) {
-        int index = RandomUtil.obtenerNumeroAleatorio(1, getContenidoConjunto().size() - 1);
+        int index = RandomUtil.obtenerNumeroAleatorio(0, getContenidoConjunto().size() - 1);
         pilaCadena.push((Character) getContenidoConjunto().toArray()[index]);
     }
 

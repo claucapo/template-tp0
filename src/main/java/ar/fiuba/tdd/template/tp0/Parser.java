@@ -40,13 +40,14 @@ class Parser {
      */
     public List<String> parse(int numberOfResults) throws Exception {
 
-        Stack<Character> context = new Stack<>();
-        IExpresion expresion = lexer.siguienteExpresion();
-
         List<String> salida = new ArrayList<>();
-        for (int i = 1; i <= numberOfResults; i++) {
-            StringBuffer result = new StringBuffer();
 
+
+        for (int i = 1; i <= numberOfResults; i++) {
+            Stack<Character> context = new Stack<>();
+            StringBuffer result = new StringBuffer();
+            lexer.irAlPrincipio();
+            IExpresion expresion = lexer.siguienteExpresion();
             while (expresion != null) {
                 expresion.interpret(context);
                 expresion = lexer.siguienteExpresion();
@@ -57,6 +58,7 @@ class Parser {
             }
 
             salida.add(result.toString());
+
         }
 
         return salida;

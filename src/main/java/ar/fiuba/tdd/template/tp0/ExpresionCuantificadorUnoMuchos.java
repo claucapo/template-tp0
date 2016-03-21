@@ -38,12 +38,11 @@ public class ExpresionCuantificadorUnoMuchos implements IExpresion {
         new Validacion(pilaCadena).validar();
         if (numeroAleatorio == 0) {
             Character caracter = pilaCadena.pop();
-
-            for (int i = 1; i <= maximo; i++) {
+            int maximoAleatorio = RandomUtil.obtenerNumeroAleatorio(1, maximo);
+            for (int i = 1; i <= maximoAleatorio; i++) {
                 pilaCadena.push(caracter);
             }
         } else {
-
             Character caracter = pilaCadena.pop();
             pilaCadena.push(caracter);
         }

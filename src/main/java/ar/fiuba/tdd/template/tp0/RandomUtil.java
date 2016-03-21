@@ -21,7 +21,8 @@ class RandomUtil {
     public static int obtenerNumeroAleatorio(int minimo, int maximo) {
         Random random = new Random();
         int interval = maximo - minimo + 1;
-        return minimo + random.nextInt() % interval;
+        int nextInt = random.nextInt(Integer.MAX_VALUE);
+        return minimo + nextInt % interval;
     }
 
     //endregion

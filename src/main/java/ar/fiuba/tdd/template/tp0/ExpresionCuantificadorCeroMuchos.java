@@ -37,8 +37,8 @@ public class ExpresionCuantificadorCeroMuchos implements IExpresion {
         if (numeroAleatorio == 1) {
             new Validacion(pilaCadena).validar();
             Character caracter = pilaCadena.pop();
-
-            for (int i = 1; i <= maximo; i++) {
+            int maximoAleatorio = RandomUtil.obtenerNumeroAleatorio(1, maximo);
+            for (int i = 1; i <= maximoAleatorio; i++) {
                 pilaCadena.push(caracter);
             }
         }
