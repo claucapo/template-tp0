@@ -9,7 +9,7 @@ public class Main {
         try {
             String regexp = args[0];
             String numeroDeResultados = args[1];
-            List<String> resultados = regExGenerator.generate(regexp, Integer.valueOf(numeroDeResultados));
+            List<String> resultados = regExGenerator.generate(regexp, Integer.parseInt(numeroDeResultados));
             System.out.println("Regular Expresion:" + regexp);
             System.out.println("Resultados:");
             resultados.forEach((item) -> System.out.println(item));
