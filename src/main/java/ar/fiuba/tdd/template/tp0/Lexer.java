@@ -79,22 +79,23 @@ class Lexer {
             throw new Exception("Regexp mal formada.");
         }
 
-        IExpresion expresion = new ExpresionConjunto(conjunto);
-        return expresion;
+        return new ExpresionConjunto(conjunto);
     }
 
     private IExpresion expresionEscapeada() throws Exception {
         Character caracter = siguienteCaracter();
 
         IExpresion expresion;
-        if (ExpresionFactoryEnum.fromToken(caracter) != null) {
-            expresion = ExpresionFactoryEnum.fromToken(caracter).obtenerExpresion(maxLength);
-        } else if (caracter == '\\') {
+        if (isCaracterEscapeable(caracter)) {
             expresion = ExpresionFactoryEnum.obtenerExpresionCaracter(caracter);
         } else {
             throw new Exception("Regexp mal formada.");
         }
         return expresion;
+    }
+
+    private boolean isCaracterEscapeable(Character caracter) {
+        return ExpresionFactoryEnum.fromToken(caracter) != null || caracter == '\\' || caracter == '[' || caracter == ']';
     }
 
     private Character siguienteCaracter() {

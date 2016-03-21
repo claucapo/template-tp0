@@ -27,7 +27,7 @@ public class RegExGeneratorTest {
 
     private boolean validate(String regEx) throws Exception {
         RegExGenerator generator = new RegExGenerator(MAXLENGTH);
-        List<String> results = generator.generate(regEx, 1);
+        List<String> results = generator.generate(regEx, 5);
         // force matching the beginning and the end of the strings
         Pattern pattern = Pattern.compile("^" + regEx + "$");
         return results
@@ -44,6 +44,7 @@ public class RegExGeneratorTest {
 
     //region Tests
 
+    //region Test del Template
     /**
      * Test para regular expression de 1 caracter.
      *
@@ -94,6 +95,10 @@ public class RegExGeneratorTest {
         assertTrue(validate("\\@.h?"));
     }
 
+
+    //endregion
+
+    //region Tests Agregados
     /**
      * Test de una regular expresion con conjuntos.
      *
@@ -124,15 +129,7 @@ public class RegExGeneratorTest {
         assertTrue(validate(".*"));
     }
 
-    /**
-     * Test escapear barra.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void testEscapearBarra() throws Exception {
-        assertTrue(validate("\\\\1"));
-    }
+
 
     /**
      * Test escapear barra.
@@ -154,6 +151,161 @@ public class RegExGeneratorTest {
         assertTrue(validate("+"));
     }
 
-    //endregioin
+    /**
+     * Conjunto de 5 caracteres.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testConjuntoDeCinco() throws Exception {
+        assertTrue(validate("[abcde]"));
+    }
+
+    /**
+     * Conjunto de 5 caracteres cero muchos.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testConjuntoDeCincoCeroMuchos() throws Exception {
+        assertTrue(validate("[abcde]*"));
+    }
+
+    /**
+     * Conjunto de 5 caracteres uno muchos.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testConjuntoDeCincoUnoMuchos() throws Exception {
+        assertTrue(validate("[abcde]+"));
+    }
+
+    /**
+     * Conjunto de 5 caracteres uno muchos.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testConjuntoDeCincoCeroUno() throws Exception {
+        assertTrue(validate("[abcde]?"));
+    }
+
+    /**
+     * 2 Conjuntos Seguidos.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testConjuntoDosConjuntos() throws Exception {
+        assertTrue(validate("[abcde][abcde]"));
+    }
+
+    /**
+     * Escape *.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testEscapeAsterico() throws Exception {
+        assertTrue(validate("\\*"));
+    }
+
+
+    /**
+     * Escape [.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testEscapeCorchete() throws Exception {
+        assertTrue(validate("\\["));
+    }
+
+    /**
+     * Escape ].
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testEscapeCierreCorchete() throws Exception {
+        assertTrue(validate("\\]"));
+    }
+
+    /**
+     * Test escapear barra.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testEscapearBarra() throws Exception {
+        assertTrue(validate("\\\\"));
+    }
+
+    /**
+     * Test escapear ?.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testEscapearSignoPregunta() throws Exception {
+        assertTrue(validate("\\?"));
+    }
+
+    /**
+     * Test escapear +.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testEscapearSignoMas() throws Exception {
+        assertTrue(validate("\\+"));
+    }
+
+
+    /**
+     * Test Conjunto y Caracter.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testConjuntoYCaracter() throws Exception {
+        assertTrue(validate("[ab]a"));
+    }
+
+    /**
+     * Test Conjunto y Expresion Punto.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testConjuntoYExpresionPunto() throws Exception {
+        assertTrue(validate("[ab]."));
+    }
+
+    /**
+     * Test Expresion Punto y Expresion Cuantificador Cero Muchos.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testExpresionPuntoYExpresionCuantificadorCeroMuchos() throws Exception {
+        assertTrue(validate(".*"));
+    }
+
+
+    /**
+     * Test Expresion Punto y Expresion Cuantificador Uno Muchos.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testExpresionPuntoYExpresionCuantificadorUnoMuchos() throws Exception {
+        assertTrue(validate(".+"));
+    }
+
+    //endregion
+
+    //endregion
 
 }
